@@ -1,0 +1,49 @@
+[ec2-user@ip-10-1-10-201 ~]$ mysql -u admin -p -h udacity.ci6lrhlh53sv.us-east-1.rds.amazonaws.com
+Enter password: 
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MySQL connection id is 646
+Server version: 8.0.35 Source distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MySQL [(none)]> select * from users
+    -> ;
+ERROR 1046 (3D000): No database selected
+MySQL [(none)]> databases;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'databases' at line 1
+MySQL [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
+| user               |
++--------------------+
+5 rows in set (0.022 sec)
+
+MySQL [(none)]> use user;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+MySQL [user]> select * from users;
+Empty set (0.001 sec)
+
+MySQL [user]> INSERT INTO users (username, email, password)
+    -> VALUES ('john_doe', 'john.doe@example.com', 'hashed_password123'),
+    ->        ('jane_smith', 'jane.smith@example.com', 'hashed_password456');
+Query OK, 2 rows affected (0.010 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+MySQL [user]> select * from users;
++---------+------------+------------------------+--------------------+---------------------+
+| user_id | username   | email                  | password           | created_at          |
++---------+------------+------------------------+--------------------+---------------------+
+|       1 | john_doe   | john.doe@example.com   | hashed_password123 | 2024-09-26 16:26:35 |
+|       2 | jane_smith | jane.smith@example.com | hashed_password456 | 2024-09-26 16:26:35 |
++---------+------------+------------------------+--------------------+---------------------+
+2 rows in set (0.021 sec)

@@ -1,0 +1,37 @@
+[ec2-user@ip-10-2-11-31 ~]$ mysql -u admin -p -h udacity-read-replica-db.czcugd1nq17e.us-west-2.rds.amazonaws.com
+Enter password: 
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MySQL connection id is 9
+Server version: 8.0.35 Source distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MySQL [(none)]> INSERT INTO users (username, email, password) VALUES ('john_doe', 'john.doe@example.com', 'hashed_password123'),        ('jane_smith', 'jane.smith@example.com', 'hashed_password456');
+ERROR 1046 (3D000): No database selected
+MySQL [(none)]> use user;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+MySQL [user]> INSERT INTO users (username, email, password) VALUES ('john_doe', 'john.doe@example.com', 'hashed_password123'),        ('jane_smith', 'jane.smith@example.com', 'hashed_password456');
+ERROR 1062 (23000): Duplicate entry 'john.doe@example.com' for key 'users.email'
+MySQL [user]> INSERT INTO users (username, email, password) VALUES ('john_doe', 'john.doe_new@example.com', 'hashed_password123'),        ('jane_smith', 'jane.smith@exampl
+e.com', 'hashed_password456');
+ERROR 1062 (23000): Duplicate entry 'jane.smith@example.com' for key 'users.email'
+MySQL [user]> INSERT INTO users (username, email, password) VALUES ('john_doe', 'john.doe_new@example.com', 'hashed_password123'),        ('jane_smith', 'jane.smith_new@ex
+ample.com', 'hashed_password456');
+Query OK, 2 rows affected (0.009 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+MySQL [user]> select * from users;
++---------+------------+----------------------------+--------------------+---------------------+
+| user_id | username   | email                      | password           | created_at          |
++---------+------------+----------------------------+--------------------+---------------------+
+|       1 | john_doe   | john.doe@example.com       | hashed_password123 | 2024-09-26 16:26:35 |
+|       2 | jane_smith | jane.smith@example.com     | hashed_password456 | 2024-09-26 16:26:35 |
+|       7 | john_doe   | john.doe_new@example.com   | hashed_password123 | 2024-09-26 17:07:41 |
+|       8 | jane_smith | jane.smith_new@example.com | hashed_password456 | 2024-09-26 17:07:41 |
++---------+------------+----------------------------+--------------------+---------------------+
+4 rows in set (0.001 sec)
