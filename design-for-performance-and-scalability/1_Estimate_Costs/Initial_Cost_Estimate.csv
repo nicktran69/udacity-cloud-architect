@@ -1,0 +1,22 @@
+﻿Estimate summary
+Upfront cost,Monthly cost,Total 12 months cost,Currency
+0,9638.630000000001,115663.56,USD
+,,* Includes upfront cost
+
+
+Detailed Estimate
+Group hierarchy,Region,Description,Service,Upfront,Monthly,First 12 months total,Currency,Status,Configuration summary
+My Estimate,US East (N. Virginia),,Amazon EC2 ,0,4089.12,49069.44,USD,,"Tenancy (Shared Instances), Operating system (Linux), Workload (Consistent, Number of instances: 6), Advance EC2 instance (m5ad.4xlarge), Pricing strategy (On-Demand Utilization: 100 %Utilized/Month), Enable monitoring (disabled), EBS Storage amount (1000 GB), DT Inbound: Not selected (0 TB per month), DT Outbound: Not selected (0 TB per month), DT Intra-Region: (0 TB per month)"
+My Estimate,US East (N. Virginia),,Amazon Aurora MySQL-Compatible,0,2212.23,26546.76,USD,,"Aurora MySQL Cluster Configuration Option (Aurora Standard), Change records per statement (0.38), Instance Type (db.r6g.large), Nodes (1), Utilization (100 %Utilized/Month), Instance Family (Memory optimized), Pricing Model (OnDemand), Storage amount (20000 GB)"
+My Estimate,US East (N. Virginia),,Amazon Aurora MySQL-Compatible,0,2212.23,26546.76,USD,,"Aurora MySQL Cluster Configuration Option (Aurora Standard), Change records per statement (0.38), Instance Type (db.r6g.large), Nodes (1), Utilization (100 %Utilized/Month), Instance Family (Memory optimized), Pricing Model (OnDemand), Storage amount (20000 GB)"
+My Estimate,US East (N. Virginia),,S3 Standard,0,115,1380.00,USD,,S3 Standard storage (5000 GB per month)
+My Estimate,US East (N. Virginia),,Data Transfer,0,0,0.00,USD,,
+My Estimate,US East (N. Virginia),,Application Load Balancer,0,22.27,267.24,USD,,Number of Application Load Balancers (1)
+My Estimate,US East (N. Virginia),,Network Load Balancer,0,454.43,5453.16,USD,,"Number of Network Load Balancers (1), Processed bytes per NLB for TCP (100 GB per hour)"
+My Estimate,US East (N. Virginia),,Network Address Translation (NAT) Gateway,0,482.85,5794.20,USD,,Number of NAT Gateways (1)
+My Estimate,US East (N. Virginia),,Amazon Route 53,0,50.5,606.00,USD,,Hosted Zones (1)
+
+
+
+Acknowledgement
+"* AWS Pricing Calculator provides only an estimate of your AWS fees and doesn't include any taxes that might apply. Your actual fees depend on a variety of factors, including your actual usage of AWS services."
