@@ -1,0 +1,10 @@
+Based on the architecture diagram, and the steps you have taken so far to upload data and access the application web service, identify at least 2 obvious poor practices as it relates to security.  Include justification.
+
+# Poor practice 1
+The IAM Role (InstanceRole) has unrestricted access to all S3 buckets. 
+This violates the principle of least privilege, as roles should be tailored to specific resources and actions to limit unnecessary permissions.
+
+# Poor practice 2
+The WebAppSG security group allows inbound traffic from the internet on multiple ports (including 22, 5000, and 80), 
+which increases the risk of attacks. 
+Additionally, it permits unrestricted outbound traffic to any IP address, further exposing the server to potential vulnerabilities.

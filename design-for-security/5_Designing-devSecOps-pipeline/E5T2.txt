@@ -1,0 +1,31 @@
+# Identify tools that will allow you to do the following:
+
+## Scan infrastructure as code templates
+Terrascan: Terrascan GitHub
+Capable of checking for SSL/TLS usage and ensuring proper configurations.
+Chef InSpec: InSpec GitHub
+
+
+### Example vulnerability
+Access logs not enabled for resources that support it.
+Server-Side Encryption (SSE) not enabled.
+
+
+##Scan AMI’s or containers for OS vulnerabilities
+Ansible
+
+
+### Example vulnerability
+SSH root access enabled with password login.
+
+
+##Scan an AWS environment for cloud configuration vulnerabilities
+AWS GuardDuty
+AWS Config
+AWS Inspector
+
+
+### Example vulnerability
+An IAM role assigned a policy with admin-level access.
+S3 bucket lacking server-side encryption.
+Unauthorized EC2 access attempts (SSH brute force).

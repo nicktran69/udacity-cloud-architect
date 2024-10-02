@@ -1,0 +1,13 @@
+# Describe GuardDuty findings that were detected related to the brute force attack
+Detected: UnauthorizedAccess:EC2/SSHBruteForce
+An SSH brute force attack was detected on the Web Service Instance - C3, originating from Instance - C3. 
+These types of attacks attempt to gain unauthorized access by repeatedly guessing the SSH password.
+
+# Research the AWS Guard Duty documentation page and explain how GuardDuty may have detected this attack - i.e. what was its source of information.
+According to the AWS GuardDuty documentation, 
+GuardDuty detects unauthorized and unusual activity by analyzing data from several sources, 
+including AWS CloudTrail event logs, VPC Flow Logs, and DNS logs. 
+The logs are encrypted during transit and then analyzed by GuardDuty for profiling and anomaly detection. 
+In this case, the attack was likely detected using data from the VPC Flow Logs, 
+which track network traffic to and from EC2 instances, 
+helping to identify patterns indicative of a brute force attack.
